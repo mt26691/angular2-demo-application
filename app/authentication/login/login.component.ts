@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import {User} from '../shared/user'
 import {AuthService} from '../shared/auth.service'
+import {CookieService} from 'angular2-cookie/core';
 
 
 @Component({
@@ -14,7 +15,7 @@ import {AuthService} from '../shared/auth.service'
 export class LoginComponent implements OnInit {
 
     user: User;
-    constructor(private authService: AuthService, private router: Router) { }
+    constructor(private authService: AuthService, private router: Router, private cookieService: CookieService) { }
 
     ngOnInit() {
         this.user = new User("", "", "");
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit {
         this.authService.login(user).then(user => {
             this.user = user;
             //navigate to dashboard after login successfully
+            this.cookieService.put("accessToken", user.accessToken);
             this.router.navigate([""]);
         });
     }

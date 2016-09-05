@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
+import { Headers, Http, Response, RequestOptions }    from '@angular/http';
 
 import {AppConfig} from '../../shared/app.config'
-import { Headers, Http, Response, RequestOptions }    from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
+import {CookieService} from 'angular2-cookie/core';
+
 import {User} from './user'
 
 @Injectable()
 export class AuthService {
 
     //inject http
-    constructor(private http: Http) {
+    constructor(private http: Http, private cookieService: CookieService) {
 
     }
 
@@ -24,6 +26,16 @@ export class AuthService {
             .toPromise()
             .then(res => res.json().data as User)
             .catch(this.handleError);
+    }
+
+    //check user is login
+    isLoggedIn(): boolean {
+        let accessToken = this.cookieService.get("accessToken");
+        if(accessToken != null && accessToken != "")
+        {
+            return true;
+        }
+        return false;
     }
 
     private handleError(error: any) {
