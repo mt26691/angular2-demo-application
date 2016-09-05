@@ -6,6 +6,8 @@ import { HttpModule }    from '@angular/http';
 //custom component
 import { AppComponent } from './app.component';
 import {PostsComponent} from './posts/posts.component'
+import {PostDetailComponent} from './posts/post-detail/post-detail.component'
+
 import './rxjs-extensions';
 
 //routing
@@ -20,7 +22,7 @@ import {routing} from './app.routing';
         routing,
 
     ],
-    declarations: [AppComponent, PostsComponent],
+    declarations: [AppComponent, PostsComponent, PostDetailComponent],
     providers: [/* TODO: Providers go here */],
     bootstrap: [AppComponent],
 })

@@ -4,6 +4,7 @@ import {Post} from './post'
 import {AppConfig} from '../../shared/app.config'
 import { Headers, Http, Response }    from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class PostService {
@@ -14,7 +15,18 @@ export class PostService {
 
     //get post based on id
     getPost(id: string): Observable<Post> {
-        return null;
+        const url = `${AppConfig.PostUrl}/${id}`;
+
+        return this.http.get(url)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
+    getPostPromise(id: string): Promise<Post> {
+        const url = `${AppConfig.PostUrl}/${id}`;
+        return this.http.get(url).toPromise()
+            .then(response => response.json().data as Post)
+            .catch(this.handleError);
     }
 
     //get many posts
