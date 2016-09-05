@@ -9,6 +9,7 @@ import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { AppComponent } from './app.component';
 import {PostsComponent} from './posts/posts.component'
 import {PostDetailComponent} from './posts/post-detail/post-detail.component'
+import {LoginComponent} from './authentication/login/login.component'
 
 //rxjs 
 import './rxjs-extensions';
@@ -26,7 +27,7 @@ import {AuthGuard} from'./authentication/auth-guard';
         routing,
 
     ],
-    declarations: [AppComponent, PostsComponent, PostDetailComponent],
+    declarations: [AppComponent, PostsComponent, PostDetailComponent, LoginComponent],
     providers: [AUTH_PROVIDERS, AuthGuard],
     bootstrap: [AppComponent],
 })

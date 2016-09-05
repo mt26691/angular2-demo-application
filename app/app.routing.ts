@@ -4,6 +4,7 @@ import {Routes, RouterModule  }  from '@angular/router'
 import {PostsComponent} from './posts/posts.component'
 import {PostDetailComponent} from './posts/post-detail/post-detail.component'
 import {AuthGuard} from './authentication/auth-guard';
+import {LoginComponent} from './authentication/login/login.component'
 
 const appRoutes: Routes = [
     {
@@ -17,7 +18,7 @@ const appRoutes: Routes = [
     },
     {
         path: 'login',
-        component: PostsComponent
+        component: LoginComponent
     }
 
 ];
