@@ -4,11 +4,9 @@ import { Component } from '@angular/core';
 
 //meta data tells angular how to create this Component
 @Component({
-    selector: 'my-app',
-    template: ` <div>Helloworld {{title}}</div>
-                `,
-    // styleUrls: ['styles/app.component.css']
-
+    selector: 'app-root',
+    templateUrl: 'app/app.component.html',
+    styleUrls: ['app/app.component.css']
 })
 
 export class AppComponent {
