@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 
 import {Post} from './post'
 import {AppConfig} from '../../shared/app.config'
-import { Headers, Http, Response }    from '@angular/http';
+import { Headers, Http, Response, RequestOptions }    from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class PostService {
+
+    headers = new Headers({ 'Content-Type': 'application/json' });
+    options = new RequestOptions({ headers: this.headers });
 
     constructor(private http: Http) {
 
@@ -38,7 +41,10 @@ export class PostService {
 
     //create or update post
     savePost(post: Post): Promise<Post> {
-        return null;
+        return this.http.post(AppConfig.PostUrl, post, this.options)
+            .toPromise()
+            .then(res => res.json().data as Post)
+            .catch(this.handleError);
     }
 
     private extractData(res: Response) {

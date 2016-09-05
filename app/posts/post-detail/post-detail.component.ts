@@ -24,9 +24,9 @@ export class PostDetailComponent implements OnInit {
             //get Observable<Post>
             //this.postService.getPost(id).subscribe(post => this.post = post);
 
-             //get Promise<Post>
-            this.postService.getPostPromise(id).then(post=>this.post = post);
-           
+            //get Promise<Post>
+            this.postService.getPostPromise(id).then(post => this.post = post);
+
         });
     }
 
@@ -35,7 +35,7 @@ export class PostDetailComponent implements OnInit {
     }
 
     save(): void {
-
+        this.postService.savePost(this.post).then(t => this.post = t);
     }
 
 }
