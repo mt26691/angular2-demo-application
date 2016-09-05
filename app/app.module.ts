@@ -10,10 +10,12 @@ import { AppComponent } from './app.component';
 import {PostsComponent} from './posts/posts.component'
 import {PostDetailComponent} from './posts/post-detail/post-detail.component'
 
+//rxjs 
 import './rxjs-extensions';
-
 //routing
 import {routing} from './app.routing';
+//authentication
+import {AuthGuard} from'./authentication/auth-guard';
 
 @NgModule({
     imports: [
@@ -25,7 +27,7 @@ import {routing} from './app.routing';
 
     ],
     declarations: [AppComponent, PostsComponent, PostDetailComponent],
-    providers: [AUTH_PROVIDERS],
+    providers: [AUTH_PROVIDERS, AuthGuard],
     bootstrap: [AppComponent],
 })
 export class AppModule { }
