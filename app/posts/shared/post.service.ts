@@ -47,6 +47,11 @@ export class PostService {
             .catch(this.handleError);
     }
 
+    deletePost(id: string): Promise<void> {
+        const url = `${AppConfig.PostUrl}/${id}`;
+        return this.http.delete(url, this.options).toPromise().then(() => null).catch(this.handleError);
+    }
+
     private extractData(res: Response) {
         let body = res.json();
         return body.data || {};

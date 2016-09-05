@@ -14,7 +14,7 @@
             <td>{{post.content}}</td>
             <td>
                 <a routerLink="/post/edit/{{post.id}}" routerLinkActive="active" class="btn btn-primary">Edit</a>
-                <a routerLink="/post/delete/{{post.id}}" routerLinkActive="active" class="btn btn-danger">Delete</a>
+                <input type="button" (click)="deletePost(post)" class="btn btn-danger" value="Delete" />
             </td>
         </tr>
     </tbody>

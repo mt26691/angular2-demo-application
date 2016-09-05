@@ -37,5 +37,4 @@ export class PostDetailComponent implements OnInit {
     save(): void {
         this.postService.savePost(this.post).then(t => this.post = t);
     }
-
 }

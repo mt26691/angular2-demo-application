@@ -29,4 +29,12 @@ export class PostsComponent implements OnInit {
             posts => this.posts = posts,
             error => this.errorMessage = <any>error);
     };
+
+    deletePost(post: Post): void {
+        //delete post and then update the current list
+        this.postService.deletePost(post.id).then(() => {
+            this.posts = this.posts.filter(t => t !== post);
+        }
+        );
+    }
 }
