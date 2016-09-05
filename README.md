@@ -25,7 +25,7 @@ npm install
 
 **2/ After installing all dependencies, open cmd/terminal and run npm start to start the server**
 ```
-npm install
+npm start
 ```
 
 **3/ You must run both application at the same time.**
