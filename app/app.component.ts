@@ -1,7 +1,7 @@
 /*when we need some thing, we import it*/
 import { Component } from '@angular/core';
 
-
+import {  AuthHttp } from 'angular2-jwt';
 //meta data tells angular how to create this Component
 @Component({
     selector: 'app-root',
@@ -11,4 +11,8 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
     title = "this is the app title";
+
+    constructor(private authHttp: AuthHttp) {
+
+    }
 }

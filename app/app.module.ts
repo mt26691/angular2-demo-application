@@ -3,6 +3,8 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { HttpModule }    from '@angular/http';
 
+import { AUTH_PROVIDERS } from 'angular2-jwt';
+
 //custom component
 import { AppComponent } from './app.component';
 import {PostsComponent} from './posts/posts.component'
@@ -23,7 +25,7 @@ import {routing} from './app.routing';
 
     ],
     declarations: [AppComponent, PostsComponent, PostDetailComponent],
-    providers: [/* TODO: Providers go here */],
+    providers: [AUTH_PROVIDERS],
     bootstrap: [AppComponent],
 })
 export class AppModule { }
