@@ -5,7 +5,7 @@ import { HttpModule }    from '@angular/http';
 
 //custom component
 import { AppComponent } from './app.component';
-import {PostsComponent} from './posts/posts.component'
+import {PostsComponent} from './posts'
 
 //routing
 import {routing} from './app.routing';
