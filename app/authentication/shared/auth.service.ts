@@ -11,12 +11,12 @@ import {User} from './user'
 @Injectable()
 export class AuthService {
 
-    //inject http
+    //inject http, cookie
     constructor(private http: Http, private cookieService: CookieService) {
 
     }
 
-    //header
+    //json header
     headers = new Headers({ 'Content-Type': 'application/json' });
     options = new RequestOptions({ headers: this.headers });
 
@@ -36,6 +36,11 @@ export class AuthService {
             return true;
         }
         return false;
+    }
+    
+    //remove all cookies
+    logout(){
+        this.cookieService.removeAll();
     }
 
     private handleError(error: any) {

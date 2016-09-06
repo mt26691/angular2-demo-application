@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
         this.submitAttempt = true;
         //if form is valid, submit value to server
         if (formValue.valid) {
+            //cast form value to user
             this.user = formValue.value;
             this.authService.login(this.user).then(user => {
                 this.user = user;
