@@ -26,11 +26,10 @@ import {AuthGuard} from'./authentication/auth-guard';
         FormsModule,
         ReactiveFormsModule,
         HttpModule,
-        routing,
-
+        routing
     ],
     declarations: [AppComponent, PostsComponent, PostDetailComponent, LoginComponent],
     providers: [AUTH_PROVIDERS, AuthGuard, CookieService, AuthService],
-    bootstrap: [AppComponent],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
